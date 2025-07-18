@@ -6,6 +6,7 @@ readme = "README.md"
 authors = [{ name = "aigcst", email = "aigcst@outlook.com" }]
 requires-python = ">=3.11"
 dependencies = [
+    "gitpython>=3.1.44",
 ]
 classifiers = [
     "Programming Language :: Python :: 3",
