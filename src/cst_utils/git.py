@@ -23,8 +23,9 @@ class GitRepo:
         '''从线上拉取最新代码'''
         return self.repo.git.pull('--progress', branch)
 
-    def push(self):
-        self.repo.remotes.origin.push()
+    def push(self, remote: str = 'origin', branch: str = 'main'):
+        _remote = self.repo.remote(remote)
+        _remote.push(branch)
 
     def active_branch(self):
         return self.repo.active_branch
