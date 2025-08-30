@@ -6,11 +6,6 @@ import yaml
 
 class Yaml:
     @staticmethod
-    def save(obj, file: str | Path, allow_unicode=True):
-        with open(file, "w", encoding="utf-8") as f:
-            yaml.dump(obj, f, allow_unicode=True)
-
-    @staticmethod
     def load(file: str | Path = "data.yaml", append_filename=False) -> dict:
         assert Path(file).suffix in (".yaml", ".yml"), (
             f"尝试加载一个非 yaml 的文件: {file}"
@@ -32,6 +27,11 @@ class Yaml:
             if append_filename:
                 data["yaml_file"] = str(file)
             return data
+
+    @staticmethod
+    def save(obj, file: str | Path, allow_unicode=True):
+        with open(file, "w", encoding="utf-8") as f:
+            yaml.dump(obj, f, allow_unicode=allow_unicode)
 
 
 if __name__ == "__main__":
